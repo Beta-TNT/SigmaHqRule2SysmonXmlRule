@@ -12,6 +12,7 @@ from copy import copy
 # SIGMA HQ YAML rule to sysmon xml rule converter
 
 # ref:
+# https://github.com/SigmaHQ/sigma
 # https://github.com/SwiftOnSecurity/sysmon-config/blob/master/sysmonconfig-export.xml
 # https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon
 # https://posts.specterops.io/putting-sysmon-v9-0-and-or-grouping-logic-to-the-test-c3ec27263df8
@@ -467,7 +468,7 @@ def rcLoadSigmaRule(inputBaseDir:str, eventOrder:list)->dict:
     return rtn
 
 schemaversion="4.50"
-baseDir = r'D:\My Works\Honey_2022\sigma-master\rules\windows'
+baseDir = os_path.join(os_path.dirname(__file__), r'\sigma-master\rules\windows')
 outputRuleXml = os_path.join(os_path.dirname(__file__), 'sigma_hq_sysmon.xml')
 outputIdMappingJson = os_path.join(os_path.dirname(__file__), 'mapping.json')
 
